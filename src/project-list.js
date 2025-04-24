@@ -1,4 +1,8 @@
 const languageDataList = {
+    "c": {
+        "color": "#555555",
+        "name": "C",
+    },
     "cpp": {
         "color": "#f34b7d",
         "name": "C++",
@@ -47,6 +51,12 @@ const languageDataList = {
 const projectList = document.getElementById("project-list")
 
 const projectDataList = {
+    "bards_tempo_keepers": {
+        "description": "A retro-inspired RPG mixed with rythm-game elements",
+        "languages": ["c"],
+        "name": "Bards: Tempo Keepers",
+        "tags": ["epitech", "game"],
+    },
     "casual_tryhard": {
         "description": "A minigame-based arcade game",
         "languages": ["godot"],
