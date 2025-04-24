@@ -123,6 +123,17 @@ const projectDataList = {
         },
         "year": 2025,
     },
+    "project/lol_facts_counter": {
+        "description": "A web application focused on giving useless facts about the game League of Legends",
+        "languages": ["css", "html", "js"],
+        "name": "LoL Facts Counter",
+        "tags": ["web"],
+        "urls": {
+            "web": "https://lipatant.github.io/LoLFactsCounter/",
+            "github": "https://github.com/Lipatant/LoLFactsCounter",
+        },
+        "year": 2025,
+    },
     "project/portfolio": {
         "description": "This portfolio, used for displaying my work",
         "languages": ["css", "html", "js"],
@@ -231,6 +242,10 @@ function createLinkTag(type, url) {
         case "youtube":
             element.style.backgroundColor = "#E22837"
             element.innerHTML = "Listen on YouTube"
+            break
+        case "web":
+            element.style.backgroundColor = "#355570"
+            element.innerHTML = "Try the app"
             break
         default:
             element.innerHTML = "URL"
