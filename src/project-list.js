@@ -284,14 +284,26 @@ function createProjectDataImage(projectID, projectData) {
 function createProjectDataLanguages(projectID, projectData) {
     let element = document.createElement("div")
     element.classList.add("languages")
-    if ("genres" in projectData) {
-        for (const genre of projectData["genres"]) {
-            element.appendChild(createGenreTag(genre))
+    if ("year" in projectData) {
+        if ("languages" in projectData) {
+            element.innerHTML += "Made in " + String(projectData["year"]) + " in "
+        } else {
+            element.innerHTML += "Made in " + String(projectData["year"]) + "."
+        }
+    } else {
+        if ("languages" in projectData) {
+            element.innerHTML += "Made with "
         }
     }
     if ("languages" in projectData) {
         for (const language of projectData["languages"]) {
             element.appendChild(createLanguageTag(language))
+        }
+    }
+    if ("genres" in projectData) {
+        element.innerHTML += " Genre:"
+        for (const genre of projectData["genres"]) {
+            element.appendChild(createGenreTag(genre))
         }
     }
     return element;

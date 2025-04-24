@@ -52,6 +52,7 @@ body {
 }
 
 .project .languages {
+    color: var(--clr-secondary-1);
     margin-bottom: calc(1.5em - 6px);
     margin-left: 1em;
     margin-top: calc(0.5em + 2px);
