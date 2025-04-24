@@ -48,41 +48,49 @@ const projectList = document.getElementById("project-list")
 
 const projectDataList = [
     {
+        "description": "A minigame-based arcade game",
         "languages": ["godot"],
         "name": "Casual Tryhard",
         "tags": ["game", "game jam"],
     },
     {
+        "description": "A chess-inspired surviving strategy game",
         "languages": ["cpp"],
         "name": "Checkfate",
         "tags": ["game", "game jam"],
     },
     {
+        "description": "A puzzle game about controlling two characters",
         "languages": ["rgss3"],
         "name": "Dissonance",
         "tags": ["game", "game jam"],
     },
     {
+        "description": "An absurd visual novel about meeting kitchen ustensils",
         "languages": ["godot"],
         "name": "Kitchenware Shop",
         "tags": ["browser", "game", "game jam"],
     },
     {
+        "description": "A Minecraft data pack adding new items, completed by a web-based wiki",
         "languages": ["css", "html", "js", "mcfunction", "powershell", "python"],
         "name": "Lipatant's Arfefact",
         "tags": ["mod", "web"],
     },
     {
+        "description": "A first-person shooter about surviving waves of zombies and extracing artefacts",
         "languages": ["unreal engine"],
         "name": "Modern Wizard",
         "tags": ["epitech", "game"],
     },
     {
+        "description": "This portfolio, used for displaying my work",
         "languages": ["css", "html", "js"],
         "name": "Portfolio",
         "tags": ["web"],
     },
     {
+        "description": "A raytracing-based rendering program using no GPU",
         "languages": ["cpp"],
         "name": "Raytracer",
         "tags": ["epitech"],
@@ -110,16 +118,40 @@ function createLanguageTag(language) {
     return element
 }
 
-function createProjectData(projectData) {
+function createProjectDataDescription(projectData) {
+    let element = document.createElement("a")
+    element.classList.add("description")
+    if ("description" in projectData) {
+        element.innerHTML = projectData["description"]
+    }
+    return element;
+}
+
+function createProjectDataLanguages(projectData) {
     let element = document.createElement("div")
-    let elementName = document.createElement("a")
-    elementName.innerHTML = projectData["name"]
-    element.appendChild(elementName)
+    element.classList.add("languages")
     if ("languages" in projectData) {
         for (const language of projectData["languages"]) {
             element.appendChild(createLanguageTag(language))
         }
     }
+    return element;
+}
+
+function createProjectDataTitle(projectData) {
+    let element = document.createElement("div")
+    let elementName = document.createElement("a")
+    elementName.innerHTML = projectData["name"]
+    element.appendChild(elementName)
+    return element;
+}
+
+function createProjectData(projectData) {
+    let element = document.createElement("div")
+    element.appendChild(createProjectDataTitle(projectData))
+    element.appendChild(createProjectDataDescription(projectData))
+    element.appendChild(createProjectDataLanguages(projectData))
+    element.classList.add("project")
     return element;
 }
 

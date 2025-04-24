@@ -25,10 +25,24 @@ body {
     color: var(--clr-primary-1)
 }
 
-.project-list div {
-    height: 2em;
+.project {
+    border-radius: 4px;
+    padding: 0.5em;
 }
 
-.project-list div.hide {
+.project:hover {
+    background-color: #3C3D37;
+}
+
+.project .description {
+    color: var(--clr-secondary-1);
+    margin-left: 1em;
+}
+
+.project .languages {
+    margin-left: 1em;
+}
+
+.project-list .project.hide {
     display: none;
 }
