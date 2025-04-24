@@ -56,6 +56,9 @@ const projectDataList = {
         "languages": ["c"],
         "name": "Bards: Tempo Keepers",
         "tags": ["epitech", "game"],
+        "urls": {
+            "github": "https://github.com/Lipatant/Bards-Tempo-Keepers",
+        },
         "year": 2022,
     },
     "game/casual_tryhard": {
@@ -63,6 +66,9 @@ const projectDataList = {
         "languages": ["godot"],
         "name": "Casual Tryhard",
         "tags": ["game", "game jam"],
+        "urls": {
+            "github": "https://github.com/Lipatant/CasualTryhard",
+        },
         "year": 2023,
     },
     "game/checkfate": {
@@ -70,6 +76,9 @@ const projectDataList = {
         "languages": ["cpp"],
         "name": "Checkfate",
         "tags": ["game", "game jam"],
+        "urls": {
+            "github": "https://github.com/Lipatant/Checkfate",
+        },
         "year": 2023,
     },
     "game/dissonance": {
@@ -77,6 +86,9 @@ const projectDataList = {
         "languages": ["rgss3"],
         "name": "Dissonance",
         "tags": ["game", "game jam"],
+        "urls": {
+            "github": "https://github.com/Lipatant/Dissonance",
+        },
         "year": 2023,
     },
     "game/kitchenware_shop": {
@@ -84,6 +96,10 @@ const projectDataList = {
         "languages": ["godot"],
         "name": "Kitchenware Shop",
         "tags": ["browser", "game", "game jam"],
+        "urls": {
+            "itch.io embed": "https://lipatant.itch.io/kitchenware-shop",
+            "github": "https://github.com/Lipatant/KitchenwareShop",
+        },
         "year": 2024,
     },
     "game/mordern_wizard": {
@@ -91,13 +107,20 @@ const projectDataList = {
         "languages": ["unreal engine"],
         "name": "Modern Wizard",
         "tags": ["epitech", "game"],
+        "urls": {
+            "itch.io": "https://lipatant.itch.io/modern-wizard",
+            "github": "https://github.com/Lipatant/KitchenwareShop",
+        },
         "year": 2024,
     },
-    "project/lipatants_artefact": {
+    "project/lipatants_artefacts": {
         "description": "A Minecraft data pack adding new items, completed by a web-based wiki",
         "languages": ["css", "html", "js", "mcfunction", "powershell", "python"],
-        "name": "Lipatant's Arfefact",
+        "name": "Lipatant's Arfefacts",
         "tags": ["mod", "web"],
+        "urls": {
+            "github": "https://github.com/Lipatant/LipatantsArtefacts",
+        },
         "year": 2025,
     },
     "project/portfolio": {
@@ -105,6 +128,9 @@ const projectDataList = {
         "languages": ["css", "html", "js"],
         "name": "Portfolio",
         "tags": ["web"],
+        "urls": {
+            "github": "https://github.com/Lipatant/Portfolio",
+        },
         "year": 2025,
     },
     "project/raytracer": {
@@ -112,6 +138,9 @@ const projectDataList = {
         "languages": ["cpp"],
         "name": "Raytracer",
         "tags": ["epitech"],
+        "urls": {
+            "github": "https://github.com/Lipatant/Raytracer",
+        },
         "year": 2023,
     },
     "music/groovotational": {
@@ -119,6 +148,9 @@ const projectDataList = {
         "genres": ["Synth-Pop"],
         "name": "Groovotational",
         "tags": ["music"],
+        "urls": {
+            "youtube": "https://youtu.be/Ou_uiyVksvI?si=9needxnXVIlGIMil",
+        },
         "year": 2025,
     },
     "music/moment_of_melting_solitude": {
@@ -126,6 +158,9 @@ const projectDataList = {
         "genres": ["Ambient"],
         "name": "Moment Of Melting Solitude",
         "tags": ["music"],
+        "urls": {
+            "youtube": "https://youtu.be/hdIhS-LFAmM?si=6wAcKordDQ_MVen5",
+        },
         "year": 2025,
     },
     "music/space_caster": {
@@ -133,8 +168,26 @@ const projectDataList = {
         "genres": ["Synth-Pop"],
         "name": "Space Caster",
         "tags": ["music"],
+        "urls": {
+            "youtube": "https://youtu.be/oZE5kaOtJOA?si=Jh40kN3pN05VdzvS",
+        },
         "year": 2025,
     },
+}
+
+function createCategoryTag(category) {
+    let element = document.createElement("img")
+    element.classList.add("category")
+    element.setAttribute("alt", String(category).charAt(0).toUpperCase() + String(category).slice(1));
+    element.setAttribute("src", `img/category/${category}.png`);
+    return element
+}
+
+function createGenreTag(genre) {
+    let element = document.createElement("a")
+    element.classList.add("language")
+    element.innerHTML = genre
+    return element
 }
 
 function createLanguageTag(language) {
@@ -158,18 +211,31 @@ function createLanguageTag(language) {
     return element
 }
 
-function createCategoryTag(category) {
-    let element = document.createElement("img")
-    element.classList.add("category")
-    element.setAttribute("alt", String(category).charAt(0).toUpperCase() + String(category).slice(1));
-    element.setAttribute("src", `img/category/${category}.png`);
-    return element
-}
-
-function createGenreTag(genre) {
+function createLinkTag(type, url) {
     let element = document.createElement("a")
+    element.classList.add("button")
     element.classList.add("language")
-    element.innerHTML = genre
+    element.href = url
+    switch (type) {
+        case "github":
+            element.innerHTML = "View code on GitHub"
+            break
+        case "itch.io":
+            element.style.backgroundColor = "#F34B7D"
+            element.innerHTML = "Get from Itch.io"
+            break
+        case "itch.io embed":
+            element.style.backgroundColor = "#F34B7D"
+            element.innerHTML = "Play on Itch.io"    
+            break
+        case "youtube":
+            element.style.backgroundColor = "#E22837"
+            element.innerHTML = "Listen on YouTube"
+            break
+        default:
+            element.innerHTML = "URL"
+            break
+    }
     return element
 }
 
@@ -191,6 +257,7 @@ function createProjectDataContent(projectID, projectData) {
     let elementDescription = document.createElement("div")
     elementDescription.appendChild(createProjectDataDescription(projectID, projectData))
     elementDescription.appendChild(createProjectDataLanguages(projectID, projectData))
+    elementDescription.appendChild(createProjectDataLinks(projectID, projectData))
     element.appendChild(createProjectDataCategory(projectID, projectData))
     element.appendChild(createProjectDataImage(projectID, projectData))
     element.appendChild(elementDescription)
@@ -225,6 +292,17 @@ function createProjectDataLanguages(projectID, projectData) {
     if ("languages" in projectData) {
         for (const language of projectData["languages"]) {
             element.appendChild(createLanguageTag(language))
+        }
+    }
+    return element;
+}
+
+function createProjectDataLinks(projectID, projectData) {
+    let element = document.createElement("div")
+    element.classList.add("links")
+    if ("urls" in projectData) {
+        for (const [type, url] of Object.entries(projectData["urls"])) {
+            element.appendChild(createLinkTag(type, url))
         }
     }
     return element;

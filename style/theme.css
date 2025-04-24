@@ -11,6 +11,17 @@ body {
     font-family: "Gill Sans", sans-serif;
 }
 
+.button.language {
+    border: inherit;
+    text-decoration: inherit;
+    transition: color 0.2s;
+}
+
+.button.language:hover,
+.button.language:focus {
+    color: var(--clr-primary-1);
+}
+
 .language {
     background-color: var(--clr-secondary-1);
     border-radius: 2px;
@@ -28,7 +39,7 @@ body {
 .project {
     border-radius: 4px;
     padding: 0.5em;
-    transition: background-color 0.1s;
+    transition: background-color 0.2s;
 }
 
 .project:hover {
@@ -41,22 +52,32 @@ body {
 }
 
 .project .languages {
+    margin-bottom: calc(1.5em - 6px);
     margin-left: 1em;
+    margin-top: calc(0.5em + 2px);
+}
+
+.project .links {
+    margin-left: 1em;
+}
+
+.project .links > .button {
+    padding: 0.5em;
 }
 
 .project img.category {
     border: 2px solid transparent;
-    height: calc(2em + 8px - 4px);
+    height: calc(5em + 8px - 4px + 2px);
     margin-left: 1em;
-    width: calc(2em + 8px - 4px);
+    width: calc(5em + 8px - 4px + 2px);
 }
 
 .project img.image {
     border: 2px solid var(--clr-primary-1);
     border-radius: 4px;
-    height: calc(2em + 8px - 4px);
+    height: calc(5em + 8px - 4px + 2px);
     margin-left: 1em;
-    width: calc(2em + 8px - 4px);
+    width: calc(5em + 8px - 4px + 2px);
 }
 
 .project > div {
