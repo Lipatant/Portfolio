@@ -311,6 +311,7 @@ function createProjectDataLinks(projectID, projectData) {
 function createProjectDataTitle(projectID, projectData) {
     let element = document.createElement("div")
     let elementName = document.createElement("a")
+    element.classList.add("title")
     if ("name" in projectData) {
         elementName.innerHTML = projectData["name"]
     } else {

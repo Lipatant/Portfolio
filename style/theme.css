@@ -65,6 +65,10 @@ body {
     padding: 0.5em;
 }
 
+.project .title {
+    padding-bottom: 0.5em;
+}
+
 .project img.category {
     border: 2px solid transparent;
     height: calc(5em + 8px - 4px + 2px);
