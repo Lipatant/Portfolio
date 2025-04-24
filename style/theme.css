@@ -28,6 +28,7 @@ body {
 .project {
     border-radius: 4px;
     padding: 0.5em;
+    transition: background-color 0.1s;
 }
 
 .project:hover {
@@ -41,6 +42,18 @@ body {
 
 .project .languages {
     margin-left: 1em;
+}
+
+.project img {
+    border: 2px solid var(--clr-primary-1);
+    border-radius: 4px;
+    height: calc(2em + 8px - 4px);
+    margin-left: 1em;
+    width: calc(2em + 8px - 4px);
+}
+
+.project > div {
+    display: flex;
 }
 
 .project-list .project.hide {
