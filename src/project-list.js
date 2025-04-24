@@ -93,7 +93,7 @@ const projectDataList = {
         "name": "Modern Wizard",
         "tags": ["epitech", "game"],
     },
-    "protfolio": {
+    "portfolio": {
         "description": "This portfolio, used for displaying my work",
         "languages": ["css", "html", "js"],
         "name": "Portfolio",
