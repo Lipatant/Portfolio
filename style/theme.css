@@ -44,7 +44,14 @@ body {
     margin-left: 1em;
 }
 
-.project img {
+.project img.category {
+    border: 2px solid transparent;
+    height: calc(2em + 8px - 4px);
+    margin-left: 1em;
+    width: calc(2em + 8px - 4px);
+}
+
+.project img.image {
     border: 2px solid var(--clr-primary-1);
     border-radius: 4px;
     height: calc(2em + 8px - 4px);

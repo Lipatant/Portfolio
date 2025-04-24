@@ -51,59 +51,89 @@ const languageDataList = {
 const projectList = document.getElementById("project-list")
 
 const projectDataList = {
-    "bards_tempo_keepers": {
+    "game/bards_tempo_keepers": {
         "description": "A retro-inspired RPG mixed with rythm-game elements",
         "languages": ["c"],
         "name": "Bards: Tempo Keepers",
         "tags": ["epitech", "game"],
+        "year": 2022,
     },
-    "casual_tryhard": {
+    "game/casual_tryhard": {
         "description": "A minigame-based arcade game",
         "languages": ["godot"],
         "name": "Casual Tryhard",
         "tags": ["game", "game jam"],
+        "year": 2023,
     },
-    "checkfate": {
+    "game/checkfate": {
         "description": "A chess-inspired surviving strategy game",
         "languages": ["cpp"],
         "name": "Checkfate",
         "tags": ["game", "game jam"],
+        "year": 2023,
     },
-    "dissonance": {
+    "game/dissonance": {
         "description": "A puzzle game about controlling two characters",
         "languages": ["rgss3"],
         "name": "Dissonance",
         "tags": ["game", "game jam"],
+        "year": 2023,
     },
-    "kitchenware_shop": {
+    "game/kitchenware_shop": {
         "description": "An absurd visual novel about meeting kitchen ustensils",
         "languages": ["godot"],
         "name": "Kitchenware Shop",
         "tags": ["browser", "game", "game jam"],
+        "year": 2024,
     },
-    "lipatants_artefact": {
-        "description": "A Minecraft data pack adding new items, completed by a web-based wiki",
-        "languages": ["css", "html", "js", "mcfunction", "powershell", "python"],
-        "name": "Lipatant's Arfefact",
-        "tags": ["mod", "web"],
-    },
-    "mordern_wizard": {
+    "game/mordern_wizard": {
         "description": "A first-person shooter about surviving waves of zombies and extracing artefacts",
         "languages": ["unreal engine"],
         "name": "Modern Wizard",
         "tags": ["epitech", "game"],
+        "year": 2024,
     },
-    "portfolio": {
+    "project/lipatants_artefact": {
+        "description": "A Minecraft data pack adding new items, completed by a web-based wiki",
+        "languages": ["css", "html", "js", "mcfunction", "powershell", "python"],
+        "name": "Lipatant's Arfefact",
+        "tags": ["mod", "web"],
+        "year": 2025,
+    },
+    "project/portfolio": {
         "description": "This portfolio, used for displaying my work",
         "languages": ["css", "html", "js"],
         "name": "Portfolio",
         "tags": ["web"],
+        "year": 2025,
     },
-    "raytracer": {
+    "project/raytracer": {
         "description": "A raytracing-based rendering program using no GPU",
         "languages": ["cpp"],
         "name": "Raytracer",
         "tags": ["epitech"],
+        "year": 2023,
+    },
+    "music/groovotational": {
+        "description": "A short synth track composed of a piano, a synth, a bass and drums",
+        "genres": ["Synth-Pop"],
+        "name": "Groovotational",
+        "tags": ["music"],
+        "year": 2025,
+    },
+    "music/moment_of_melting_solitude": {
+        "description": "A short ambient track composed of a piano, a synth and drums",
+        "genres": ["Ambient"],
+        "name": "Moment Of Melting Solitude",
+        "tags": ["music"],
+        "year": 2025,
+    },
+    "music/space_caster": {
+        "description": "A short synth track composed of a piano, a synth, a bass and drums",
+        "genres": ["Synth-Pop"],
+        "name": "Space Caster",
+        "tags": ["music"],
+        "year": 2025,
     },
 }
 
@@ -128,11 +158,40 @@ function createLanguageTag(language) {
     return element
 }
 
+function createCategoryTag(category) {
+    let element = document.createElement("img")
+    element.classList.add("category")
+    element.setAttribute("alt", String(category).charAt(0).toUpperCase() + String(category).slice(1));
+    element.setAttribute("src", `img/category/${category}.png`);
+    return element
+}
+
+function createGenreTag(genre) {
+    let element = document.createElement("a")
+    element.classList.add("language")
+    element.innerHTML = genre
+    return element
+}
+
+function createProjectDataCategory(projectID, projectData) {
+    let category = "project"
+    if ("tags" in projectData) {
+        const tags = projectData["tags"]
+        if (tags.includes("game")) {
+            category = "game"
+        } else if (tags.includes("music")) {
+            category = "music"
+        }
+    }
+    return createCategoryTag(category)
+}
+
 function createProjectDataContent(projectID, projectData) {
     let element = document.createElement("div")
     let elementDescription = document.createElement("div")
     elementDescription.appendChild(createProjectDataDescription(projectID, projectData))
     elementDescription.appendChild(createProjectDataLanguages(projectID, projectData))
+    element.appendChild(createProjectDataCategory(projectID, projectData))
     element.appendChild(createProjectDataImage(projectID, projectData))
     element.appendChild(elementDescription)
     return element
@@ -149,14 +208,20 @@ function createProjectDataDescription(projectID, projectData) {
 
 function createProjectDataImage(projectID, projectData) {
     let element = document.createElement("img")
+    element.classList.add("image")
     element.setAttribute("alt", "");
-    element.setAttribute("src", `img/project/${projectID}/icon.png`);
+    element.setAttribute("src", `img/${projectID}/icon.png`);
     return element
 }
 
 function createProjectDataLanguages(projectID, projectData) {
     let element = document.createElement("div")
     element.classList.add("languages")
+    if ("genres" in projectData) {
+        for (const genre of projectData["genres"]) {
+            element.appendChild(createGenreTag(genre))
+        }
+    }
     if ("languages" in projectData) {
         for (const language of projectData["languages"]) {
             element.appendChild(createLanguageTag(language))
