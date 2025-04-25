@@ -75,10 +75,10 @@ img.main-picture {
 }
 
 .project img.category {
-    border: 2px solid transparent;
-    height: calc(5em + 8px - 4px + 2px);
-    margin-left: 1em;
-    width: calc(5em + 8px - 4px + 2px);
+    height: 1em;
+    padding-top: 2px;
+    padding-left: 4px;
+    width: 1em;
 }
 
 .project img.image {

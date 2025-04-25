@@ -65,7 +65,7 @@ const projectDataList = {
         "description": "A minigame-based arcade game",
         "languages": ["godot"],
         "name": "Casual Tryhard",
-        "tags": ["game", "game jam"],
+        "tags": ["epitech", "game", "jam"],
         "urls": {
             "github": "https://github.com/Lipatant/CasualTryhard",
         },
@@ -75,7 +75,7 @@ const projectDataList = {
         "description": "A chess-inspired surviving strategy game",
         "languages": ["cpp"],
         "name": "Checkfate",
-        "tags": ["game", "game jam"],
+        "tags": ["epitech", "game", "jam"],
         "urls": {
             "github": "https://github.com/Lipatant/Checkfate",
         },
@@ -85,7 +85,7 @@ const projectDataList = {
         "description": "A puzzle game about controlling two characters",
         "languages": ["rgss3"],
         "name": "Dissonance",
-        "tags": ["game", "game jam"],
+        "tags": ["epitech", "game", "jam"],
         "urls": {
             "github": "https://github.com/Lipatant/Dissonance",
         },
@@ -95,7 +95,7 @@ const projectDataList = {
         "description": "An absurd visual novel about meeting kitchen ustensils",
         "languages": ["godot"],
         "name": "Kitchenware Shop",
-        "tags": ["browser", "game", "game jam"],
+        "tags": ["browser", "game", "jam"],
         "urls": {
             "itch.io embed": "https://lipatant.itch.io/kitchenware-shop",
             "github": "https://github.com/Lipatant/KitchenwareShop",
@@ -127,7 +127,7 @@ const projectDataList = {
         "description": "A web application focused on giving useless facts about the game League of Legends",
         "languages": ["css", "html", "js"],
         "name": "LoL Facts Counter",
-        "tags": ["web"],
+        "tags": ["jam", "web"],
         "urls": {
             "web": "https://lipatant.github.io/LoLFactsCounter/",
             "github": "https://github.com/Lipatant/LoLFactsCounter",
@@ -273,7 +273,6 @@ function createProjectDataContent(projectID, projectData) {
     elementDescription.appendChild(createProjectDataDescription(projectID, projectData))
     elementDescription.appendChild(createProjectDataLanguages(projectID, projectData))
     elementDescription.appendChild(createProjectDataLinks(projectID, projectData))
-    element.appendChild(createProjectDataCategory(projectID, projectData))
     element.appendChild(createProjectDataImage(projectID, projectData))
     element.appendChild(elementDescription)
     return element
@@ -345,6 +344,16 @@ function createProjectDataTitle(projectID, projectData) {
         elementName.innerHTML = projectID
     }
     element.appendChild(elementName)
+    element.appendChild(createProjectDataCategory(projectID, projectData))
+    if ("tags" in projectData) {
+        const tags = projectData["tags"]
+        if (tags.includes("jam")) {
+            element.appendChild(createCategoryTag("jam"))
+        }
+        if (tags.includes("epitech")) {
+            element.appendChild(createCategoryTag("epitech"))
+        }
+    }
     return element;
 }
 
