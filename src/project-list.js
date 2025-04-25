@@ -234,19 +234,19 @@ function createLinkTag(type, url) {
             element.innerHTML = "View code on GitHub"
             break
         case "itch.io":
-            element.style.backgroundColor = "#F34B7D"
+            element.style.backgroundColor = "var(--clr-app-itch-io)"
             element.innerHTML = "Get from Itch.io"
             break
         case "itch.io embed":
-            element.style.backgroundColor = "#F34B7D"
+            element.style.backgroundColor = "var(--clr-app-itch-io)"
             element.innerHTML = "Play on Itch.io"    
             break
         case "youtube":
-            element.style.backgroundColor = "#E22837"
+            element.style.backgroundColor = "var(--clr-app-youtube)"
             element.innerHTML = "Listen on YouTube"
             break
         case "web":
-            element.style.backgroundColor = "#355570"
+            element.style.backgroundColor = "var(--clr-app-web)"
             element.innerHTML = "Try the app"
             break
         default:
