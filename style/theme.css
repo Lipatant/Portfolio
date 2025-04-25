@@ -11,6 +11,10 @@ body {
     font-family: "Gill Sans", sans-serif;
 }
 
+img.main-picture {
+    border-radius: 50%;
+}
+
 .button.language {
     border: inherit;
     text-decoration: inherit;
