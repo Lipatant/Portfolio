@@ -11,6 +11,52 @@ body {
     font-family: "Gill Sans", sans-serif;
 }
 
+button {
+    background-color: var(--clr-secondary-1);
+    border: inherit;
+    border-radius: 2px;
+    color: var(--clr-background);
+    font-size: small;
+    font-weight: bold;
+    margin: 6px;
+    padding: 6px;
+    text-decoration: inherit;
+    transition: color 0.2s;
+}
+
+button > img {
+    filter: invert(1);
+    height: calc(1em - 2px);
+    transition: filter 0.2s;
+}
+
+button:hover,
+button:focus {
+    color: var(--clr-primary-1);
+}
+
+button:hover > img,
+button:focus > img {
+    filter: invert(0);
+}
+
+div.main-title {
+    background-color: var(--clr-secondary-2);
+    border-radius: 10px;
+    padding: 1em;
+}
+
+h1.main-title {
+    margin: inherit;
+    text-align: center;
+}
+
+h2.main-title {
+    font-weight: inherit;
+    margin: inherit;
+    text-align: center;
+}
+
 img.main-picture {
     border-radius: 50%;
 }

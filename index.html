@@ -8,9 +8,15 @@
 </head>
 
 <body>
-    <h1>I'm Virgile Berrier</h1>
+    <div style="width: 100%; display: flex; justify-content: center;">
+        <div class="main-title" style="width: 250px;">
+            <h2 class="main-title">Hi, I'm</h2>
+            <h1 class="main-title">Virgile Berrier</h1>
+            <h2 class="main-title">a <b>Developer</b></h2>
+        </div>
+    </div>
 
-    <h2>Developer</h2>
+    <br>
 
     <span>Hi! I'm Virgile (Lipatant) Berrier and I make <b>apps</b>, <b>games</b> and <b>music</b>!</span>
 
@@ -30,6 +36,39 @@
         </div>
     </div>
 
+    <br>
+    <br>
+
+    <div>
+        <button onclick="filterProjectListAll()">
+            <img alt="" src="img/category/all.png" />
+            Display all projects
+        </button>
+        <div>
+        <button onclick="filterProjectListByCategory('game')">
+            <img alt="" src="img/category/game.png" />
+            Filter games only
+        </button>
+        <button onclick="filterProjectListByCategory('music')">
+            <img alt="" src="img/category/music.png" />
+            Filter music only
+        </button>
+        <button onclick="filterProjectListByCategory('project')">
+            <img alt="" src="img/category/project.png" />
+            Filter regular projects only
+        </button>
+        </div>
+        <button onclick="filterProjectListByTag('epitech')">
+            <img alt="" src="img/category/epitech.png" />
+            Filter EPITECH projects only
+        </button>
+    </div>
+
+    <br>
+
+    <a id="project-list-filter-display" style="color: var(--clr-secondary-1); margin: 2em;">...</a>
+
+    <br>
     <br>
 
     <div class="project-list" id="project-list"></div>

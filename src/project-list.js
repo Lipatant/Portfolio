@@ -49,6 +49,8 @@ const languageDataList = {
 }
 
 const projectList = document.getElementById("project-list")
+const projectListFilterDisplay = document.getElementById("project-list-filter-display")
+let projectListProjects = []
 
 const projectDataList = {
     "game/bards_tempo_keepers": {
@@ -255,16 +257,7 @@ function createLinkTag(type, url) {
 }
 
 function createProjectDataCategory(projectID, projectData) {
-    let category = "project"
-    if ("tags" in projectData) {
-        const tags = projectData["tags"]
-        if (tags.includes("game")) {
-            category = "game"
-        } else if (tags.includes("music")) {
-            category = "music"
-        }
-    }
-    return createCategoryTag(category)
+    return createCategoryTag(getProjectDataCategory(projectID, projectData))
 }
 
 function createProjectDataContent(projectID, projectData) {
@@ -362,11 +355,89 @@ function createProjectData(projectID, projectData) {
     element.appendChild(createProjectDataTitle(projectID, projectData))
     element.appendChild(createProjectDataContent(projectID, projectData))
     element.classList.add("project")
+    element.id = projectID
+    element.setAttribute("category", getProjectDataCategory(projectID, projectData))
     return element;
+}
+
+function filterProjectListAll() {
+    for (const project of projectListProjects) {
+        setProjectVisibility(project, false)
+    }
+    updateProjectListFilterDisplay()
+}
+
+function filterProjectListByCategory(category) {
+    for (const project of projectListProjects) {
+        setProjectVisibility(project, project.getAttribute("category") !== category)
+    }
+    updateProjectListFilterDisplay()
+}
+
+function filterProjectListByTag(tag) {
+    for (const project of projectListProjects) {
+        const projectData = projectDataList[project.id]
+        if ("tags" in projectData) {
+            setProjectVisibility(project, !projectData["tags"].includes(tag))
+        } else {
+            setProjectVisibility(project, false)
+        }
+    }
+    updateProjectListFilterDisplay()
+}
+
+function getProjectDataCategory(projectID, projectData) {
+    let category = "project"
+    if ("tags" in projectData) {
+        const tags = projectData["tags"]
+        if (tags.includes("game")) {
+            category = "game"
+        } else if (tags.includes("music")) {
+            category = "music"
+        }
+    }
+    return category
+}
+
+function setProjectVisibility(project, hide) {
+    if (hide) {
+        if (!project.classList.contains("hide")) {
+            project.classList.add("hide");
+        }
+    } else {
+        if (project.classList.contains("hide")) {
+            project.classList.remove("hide");
+        }
+    }
+}
+
+function updateProjectListFilterDisplay() {
+    let projectCount = 0
+    let projectCountDisplay = 0
+    for (const project of projectListProjects) {
+        projectCount += 1;
+        if (!project.classList.contains("hide")) {
+            projectCountDisplay += 1;
+        }
+    }
+    if (projectListFilterDisplay) {
+        if (projectCountDisplay < 1) {
+            projectListFilterDisplay.innerHTML = `No project corresponding to the selected filter`
+        } else if (projectCountDisplay >= projectCount) {
+            projectListFilterDisplay.innerHTML = `All <b>${projectCount}</b> projects are displayed`
+        } else if (projectCountDisplay === 1) {
+            projectListFilterDisplay.innerHTML = `<b>1</b> project displayed, for a total of ${projectCount} projects`
+        } else {
+            projectListFilterDisplay.innerHTML = `<b>${projectCountDisplay}</b> projects displayed, for a total of ${projectCount} projects`
+        }
+    }
 }
 
 if (projectList) {
     for (const [projectID, projectData] of Object.entries(projectDataList)) {
-        projectList.appendChild(createProjectData(projectID, projectData))
+        let project = createProjectData(projectID, projectData)
+        projectList.appendChild(project)
+        projectListProjects.push(project)
     }
+    filterProjectListAll()
 }
