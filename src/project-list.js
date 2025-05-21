@@ -166,6 +166,16 @@ const projectDataList = {
         },
         "year": 2025,
     },
+    "music/modern_wizard": {
+        "description": "Two short synth tracks mixed with metal and surf-rock elements",
+        "genres": ["Metal","Synth"],
+        "name": "Modern Wizard (Original Game Soundtrack)",
+        "tags": ["music"],
+        "urls": {
+            "youtube": "https://youtube.com/playlist?list=PL42_8vbq21uJBvvZ4PFdBKObKKzVU31s1&si=wxESeeuK4ONmSJGs",
+        },
+        "year": 2024,
+    },
     "music/moment_of_melting_solitude": {
         "description": "A short ambient track composed of a piano, a synth and drums",
         "genres": ["Ambient"],
