@@ -19,6 +19,10 @@ const languageDataList = {
         "color": "#355570",
         "name": "Godot",
     },
+    "haskell": {
+        "color": "#5e5086",
+        "name": "Haskell",
+    },
     "html": {
         "color": "#e34c26",
         "name": "HTML",
@@ -114,6 +118,16 @@ const projectDataList = {
             "github": "https://github.com/Lipatant/KitchenwareShop",
         },
         "year": 2024,
+    },
+    "project/glados": {
+        "description": "A compiler and interpreter for a home-made language",
+        "languages": ["haskell"],
+        "name": "GLaDOS",
+        "tags": ["epitech"],
+        "urls": {
+            "github": "https://github.com/Lipatant/GLaDOS",
+        },
+        "year": 2023,
     },
     "project/lipatants_artefacts": {
         "description": "A Minecraft data pack adding new items, completed by a web-based wiki",
