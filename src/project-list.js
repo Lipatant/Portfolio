@@ -63,7 +63,7 @@ const projectDataList = {
         "name": "Bards: Tempo Keepers",
         "tags": ["epitech", "game"],
         "urls": {
-            "github": "https://github.com/Lipatant/Bards-Tempo-Keepers",
+            "github": "https://github.com/Lipatant/BardsTempoKeepers",
         },
         "year": 2022,
     },
