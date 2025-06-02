@@ -67,6 +67,17 @@ const projectDataList = {
         },
         "year": 2022,
     },
+    "game/brawl_me_blues": {
+        "description": "A fast-paced chaotic party game",
+        "languages": ["godot"],
+        "name": "Brawl Me Blues",
+        "tags": ["game"],
+        "urls": {
+            "steam": "https://store.steampowered.com/app/3786030/Brawl_Me_Blues/",
+            "youtube/trailer": "https://youtu.be/kKQS86UX8kQ?si=D6ul1TatPm8oe_EL",
+        },
+        "year": 2025,
+    },
     "game/casual_tryhard": {
         "description": "A minigame-based arcade game",
         "languages": ["godot"],
@@ -265,9 +276,17 @@ function createLinkTag(type, url) {
             element.style.backgroundColor = "var(--clr-app-itch-io)"
             element.innerHTML = "Play on Itch.io"    
             break
+        case "steam":
+            element.style.backgroundColor = "var(--clr-app-steam)"
+            element.innerHTML = "Get on Steam"    
+            break
         case "youtube":
             element.style.backgroundColor = "var(--clr-app-youtube)"
             element.innerHTML = "Listen on YouTube"
+            break
+        case "youtube/trailer":
+            element.style.backgroundColor = "var(--clr-app-youtube)"
+            element.innerHTML = "Watch the trailer on YouTube"
             break
         case "web":
             element.style.backgroundColor = "var(--clr-app-web)"
