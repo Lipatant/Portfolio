@@ -181,6 +181,17 @@ const projectDataList = {
         },
         "year": 2023,
     },
+    "project/safaringo": {
+        "description": "An exploration Minecraft minigame map",
+        "languages": ["mcfunction"],
+        "name": "Safaringo",
+        "tags": ["mod", "web"],
+        "urls": {
+            "planetminecraft": "https://www.planetminecraft.com/project/safaringo/",
+            "youtube/trailer": "https://youtu.be/dw0B3fWkQgU?si=wqhIDmfCelExC9x0",
+        },
+        "year": 2025,
+    },
     "music/groovotational": {
         "description": "A short synth track composed of a piano, a synth, a bass and drums",
         "genres": ["Synth-Pop"],
@@ -275,6 +286,9 @@ function createLinkTag(type, url) {
         case "itch.io embed":
             element.style.backgroundColor = "var(--clr-app-itch-io)"
             element.innerHTML = "Play on Itch.io"    
+            break
+        case "planetminecraft":
+            element.innerHTML = "Get from Planet Minecraft"
             break
         case "steam":
             element.style.backgroundColor = "var(--clr-app-steam)"
