@@ -108,6 +108,28 @@ const projectDataList = {
         },
         "year": 2023,
     },
+    "game/for_the_great_belly": {
+        "description": "An incremental game about cats getting fish",
+        "languages": ["godot"],
+        "name": "For The Great Belly",
+        "tags": ["browser", "game", "jam"],
+        "urls": {
+            "itch.io embed": "https://lipatant.itch.io/for-the-great-belly",
+            "github": "https://github.com/Lipatant/ForTheGreatBelly",
+        },
+        "year": 2026,
+    },
+    "game/keep_it_bombganized": {
+        "description": "A puzzle game about making bombs that got first place at the Mini Jame Gam #49",
+        "languages": ["godot"],
+        "name": "Keep It Bombganized",
+        "tags": ["browser", "game", "jam"],
+        "urls": {
+            "itch.io embed": "https://lipatant.itch.io/keep-it-bombganized",
+            "github": "https://github.com/Lipatant/KeepItBombganized",
+        },
+        "year": 2025,
+    },
     "game/kitchenware_shop": {
         "description": "An absurd visual novel about meeting kitchen ustensils",
         "languages": ["godot"],
@@ -119,6 +141,29 @@ const projectDataList = {
         },
         "year": 2024,
     },
+    "game/grim_at_your_service": {
+        "description": "A social puzzle about HR but with Death itself",
+        "languages": ["godot"],
+        "name": "Grim, At Your Service",
+        "tags": ["browser", "epitech", "game", "jam"],
+        "urls": {
+            "itch.io embed": "https://lipatant.itch.io/grim-at-your-service",
+            "github": "https://github.com/Lipatant/GrimAtYourService",
+        },
+        "year": 2026,
+    },
+    "game/haimaskia": {
+        "description": "A vampire-themed action/stealth game",
+        "languages": ["godot"],
+        "name": "Haimaskià",
+        "tags": ["epitech", "game"],
+        "urls": {
+            "steam": "https://store.steampowered.com/app/4138200/Haimaski/",
+            "itch.io": "https://haimaskia.itch.io/game",
+            "youtube/trailer": "https://youtu.be/DERVDGHCZNo?si=86DxStAiGyruk1nh",
+        },
+        "year": 2026,
+    },
     "game/mordern_wizard": {
         "description": "A first-person shooter about surviving waves of zombies and extracing artefacts",
         "languages": ["unreal engine"],
@@ -129,6 +174,18 @@ const projectDataList = {
             "github": "https://github.com/Lipatant/KitchenwareShop",
         },
         "year": 2024,
+    },
+    "game/project_check_sabre": {
+        "description": "A chess-inspired arcade game",
+        "languages": ["godot"],
+        "name": "Project Check Sabre: Gameplay Demo",
+        "tags": ["game"],
+        "urls": {
+            "itch.io embed": "https://lipatant.itch.io/project-check-sabre",
+            "youtube/devlog": "https://youtube.com/playlist?list=PL42_8vbq21uJzLOOtCp7N_5y_s4BYlVgH&si=drI2CuAP1O9nYMfn",
+            "github": "https://github.com/Lipatant/CheckSabre",
+        },
+        "year": 2026,
     },
     "project/glados": {
         "description": "A compiler and interpreter for a home-made language",
@@ -192,6 +249,16 @@ const projectDataList = {
         },
         "year": 2025,
     },
+    "music/grim_at_your_service": {
+        "description": "Two short acoustic tracks",
+        "genres": ["Acoustic"],
+        "name": "Grim, At Your Service (Original Game Soundtrack)",
+        "tags": ["music"],
+        "urls": {
+            "youtube": "https://youtu.be/yfknoxEnlRc?si=ogthucu33eIIJJsa",
+        },
+        "year": 2026,
+    },
     "music/groovotational": {
         "description": "A short synth track composed of a piano, a synth, a bass and drums",
         "genres": ["Synth-Pop"],
@@ -202,13 +269,23 @@ const projectDataList = {
         },
         "year": 2025,
     },
+    "music/haimaskia": {
+        "description": "Five tracks forming an album featuring a symphonic but minimalist main theme and an ominous boss track",
+        "genres": ["Ambient","Symphonic"],
+        "name": "Haimaskià (Original Game Soundtrack)",
+        "tags": ["music"],
+        "urls": {
+            "youtube": "https://youtube.com/playlist?list=PLmXROgoZgUtyRqjwo8oVU2WtahVwhuOS4&si=iaXW9JyIW1W0vk8l",
+        },
+        "year": 2026,
+    },
     "music/modern_wizard": {
         "description": "Two short synth tracks mixed with metal and surf-rock elements",
         "genres": ["Metal","Synth"],
         "name": "Modern Wizard (Original Game Soundtrack)",
         "tags": ["music"],
         "urls": {
-            "youtube": "https://youtube.com/playlist?list=PL42_8vbq21uJBvvZ4PFdBKObKKzVU31s1&si=wxESeeuK4ONmSJGs",
+            "youtube": "https://youtu.be/Bn2mUgofho4?si=rt4kA5l-QqMJFe12",
         },
         "year": 2024,
     },
@@ -297,6 +374,10 @@ function createLinkTag(type, url) {
         case "youtube":
             element.style.backgroundColor = "var(--clr-app-youtube)"
             element.innerHTML = "Listen on YouTube"
+            break
+        case "youtube/devlog":
+            element.style.backgroundColor = "var(--clr-app-youtube)"
+            element.innerHTML = "Watch the dev log on YouTube"
             break
         case "youtube/trailer":
             element.style.backgroundColor = "var(--clr-app-youtube)"
